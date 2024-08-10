@@ -1,114 +1,340 @@
-# Binance-api-doc
-            - name: Close Stale Issues
-  uses: actions/stale@v9.0.0
-  with:
-    # Token for the repository. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`.
-    repo-token: # optional, default is ${{ github.token }}
-    # The message to post on the issue when tagging it. If none provided, will not mark issues stale.
-    stale-issue-message: # optional
-    # The message to post on the pull request when tagging it. If none provided, will not mark pull requests stale.
-    stale-pr-message: # optional
-    # The message to post on the issue when closing it. If none provided, will not comment when closing an issue.
-    close-issue-message: # optional
-    # The message to post on the pull request when closing it. If none provided, will not comment when closing a pull requests.
-    close-pr-message: # optional
-    # The number of days old an issue or a pull request can be before marking it stale. Set to -1 to never mark issues or pull requests as stale automatically.
-    days-before-stale: # optional, default is 60
-    # The number of days old an issue can be before marking it stale. Set to -1 to never mark issues as stale automatically. Override "days-before-stale" option regarding only the issues.
-    days-before-issue-stale: # optional
-    # The number of days old a pull request can be before marking it stale. Set to -1 to never mark pull requests as stale automatically. Override "days-before-stale" option regarding only the pull requests.
-    days-before-pr-stale: # optional
-    # The number of days to wait to close an issue or a pull request after it being marked stale. Set to -1 to never close stale issues or pull requests.
-    days-before-close: # optional, default is 7
-    # The number of days to wait to close an issue after it being marked stale. Set to -1 to never close stale issues. Override "days-before-close" option regarding only the issues.
-    days-before-issue-close: # optional
-    # The number of days to wait to close a pull request after it being marked stale. Set to -1 to never close stale pull requests. Override "days-before-close" option regarding only the pull requests.
-    days-before-pr-close: # optional
-    # The label to apply when an issue is stale.
-    stale-issue-label: # optional, default is Stale
-    # The label to apply when an issue is closed.
-    close-issue-label: # optional
-    # The labels that mean an issue is exempt from being marked stale. Separate multiple labels with commas (eg. "label1,label2").
-    exempt-issue-labels: # optional, default is 
-    # The reason to use when closing an issue.
-    close-issue-reason: # optional, default is not_planned
-    # The label to apply when a pull request is stale.
-    stale-pr-label: # optional, default is Stale
-    # The label to apply when a pull request is closed.
-    close-pr-label: # optional
-    # The labels that mean a pull request is exempt from being marked as stale. Separate multiple labels with commas (eg. "label1,label2").
-    exempt-pr-labels: # optional, default is 
-    # The milestones that mean an issue or a pull request is exempt from being marked as stale. Separate multiple milestones with commas (eg. "milestone1,milestone2").
-    exempt-milestones: # optional, default is 
-    # The milestones that mean an issue is exempt from being marked as stale. Separate multiple milestones with commas (eg. "milestone1,milestone2"). Override "exempt-milestones" option regarding only the issues.
-    exempt-issue-milestones: # optional, default is 
-    # The milestones that mean a pull request is exempt from being marked as stale. Separate multiple milestones with commas (eg. "milestone1,milestone2"). Override "exempt-milestones" option regarding only the pull requests.
-    exempt-pr-milestones: # optional, default is 
-    # Exempt all issues and pull requests with milestones from being marked as stale. Default to false.
-    exempt-all-milestones: # optional, default is false
-    # Exempt all issues with milestones from being marked as stale. Override "exempt-all-milestones" option regarding only the issues.
-    exempt-all-issue-milestones: # optional, default is 
-    # Exempt all pull requests with milestones from being marked as stale. Override "exempt-all-milestones" option regarding only the pull requests.
-    exempt-all-pr-milestones: # optional, default is 
-    # Only issues or pull requests with all of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels.
-    only-labels: # optional, default is 
-    # Only issues or pull requests with at least one of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels.
-    any-of-labels: # optional, default is 
-    # Only issues with at least one of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels. Override "any-of-labels" option regarding only the issues.
-    any-of-issue-labels: # optional, default is 
-    # Only pull requests with at least one of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels. Override "any-of-labels" option regarding only the pull requests.
-    any-of-pr-labels: # optional, default is 
-    # Only issues with all of these labels are checked if stale. Defaults to `[]` (disabled) and can be a comma-separated list of labels. Override "only-labels" option regarding only the issues.
-    only-issue-labels: # optional, default is 
-    # Only pull requests with all of these labels are checked if stale. Defaults to `[]` (disabled) and can be a comma-separated list of labels. Override "only-labels" option regarding only the pull requests.
-    only-pr-labels: # optional, default is 
-    # The maximum number of operations per run, used to control rate limiting (GitHub API CRUD related).
-    operations-per-run: # optional, default is 30
-    # Remove stale labels from issues and pull requests when they are updated or commented on.
-    remove-stale-when-updated: # optional, default is true
-    # Remove stale labels from issues when they are updated or commented on. Override "remove-stale-when-updated" option regarding only the issues.
-    remove-issue-stale-when-updated: # optional, default is 
-    # Remove stale labels from pull requests when they are updated or commented on. Override "remove-stale-when-updated" option regarding only the pull requests.
-    remove-pr-stale-when-updated: # optional, default is 
-    # Run the processor in debug mode without actually performing any operations on live issues.
-    debug-only: # optional, default is false
-    # The order to get issues or pull requests. Defaults to false, which is descending.
-    ascending: # optional, default is false
-    # Delete the git branch after closing a stale pull request.
-    delete-branch: # optional, default is false
-    # The date used to skip the stale action on issue/pull request created before it (ISO 8601 or RFC 2822).
-    start-date: # optional, default is 
-    # The assignees which exempt an issue or a pull request from being marked as stale. Separate multiple assignees with commas (eg. "user1,user2").
-    exempt-assignees: # optional, default is 
-    # The assignees which exempt an issue from being marked as stale. Separate multiple assignees with commas (eg. "user1,user2"). Override "exempt-assignees" option regarding only the issues.
-    exempt-issue-assignees: # optional, default is 
-    # The assignees which exempt a pull request from being marked as stale. Separate multiple assignees with commas (eg. "user1,user2"). Override "exempt-assignees" option regarding only the pull requests.
-    exempt-pr-assignees: # optional, default is 
-    # Exempt all issues and pull requests with assignees from being marked as stale. Default to false.
-    exempt-all-assignees: # optional, default is false
-    # Exempt all issues with assignees from being marked as stale. Override "exempt-all-assignees" option regarding only the issues.
-    exempt-all-issue-assignees: # optional, default is 
-    # Exempt all pull requests with assignees from being marked as stale. Override "exempt-all-assignees" option regarding only the pull requests.
-    exempt-all-pr-assignees: # optional, default is 
-    # Exempt draft pull requests from being marked as stale. Default to false.
-    exempt-draft-pr: # optional, default is false
-    # Display some statistics at the end regarding the stale workflow (only when the logs are enabled).
-    enable-statistics: # optional, default is true
-    # A comma delimited list of labels to add when an issue or pull request becomes unstale.
-    labels-to-add-when-unstale: # optional, default is 
-    # A comma delimited list of labels to remove when an issue or pull request becomes stale.
-    labels-to-remove-when-stale: # optional, default is 
-    # A comma delimited list of labels to remove when an issue or pull request becomes unstale.
-    labels-to-remove-when-unstale: # optional, default is 
-    # Any update (update/comment) can reset the stale idle time on the issues and pull requests.
-    ignore-updates: # optional, default is false
-    # Any update (update/comment) can reset the stale idle time on the issues. Override "ignore-updates" option regarding only the issues.
-    ignore-issue-updates: # optional, default is 
-    # Any update (update/comment) can reset the stale idle time on the pull requests. Override "ignore-updates" option regarding only the pull requests.
-    ignore-pr-updates: # optional, default is 
-    # Only the issues or the pull requests with an assignee will be marked as stale automatically.
-    include-only-assigned: # optional, default is false
-          
-* mkdocs is required 
-* view https://binanceapitest.github.io/Binance-api-doc/
+# This is a lightweight library that works as a connector to the Binance Futures API
 
+• Supported APIs:
+• /fapi/*
+• /dapi/*
+• /futures/*
+• USD-M Futures Websocket Market Stream
+• COIN-M Futures Websocket Market Stream
+• USD-M Futures User Data Stream
+• COIN-M Futures User Data Stream
+• Test cases and examples
+
+# Replace LATEST_VERSION with the latest version number and paste the snippet below in pom.xml
+
+<dependency>
+    <groupId>io.github.binance</groupId>
+    <artifactId>binance-futures-connector-java</artifactId>
+    <version>LATEST_VERSION</version>
+</dependency>
+
+# "Run mvn install where pom.xml is located to install the dependency.
+
+• Run Example
+• The examples are located under src/test/java/examples. Before running the • examples, set up your API_KEY and SECRET_KEY in PrivateConfig.java. This • configuration file is only used for examples, you should reconfigure the • API_KEY and SECRET_KEY when using the library.
+
+# RESTful APIs
+* The endpoints are categorized according to the following API documentations:
+
+# Binance USDⓈ-M Futures
+# Binance COIN-M Futures
+• Each object corresponds to its category which will be used to call its • • respective endpoints.
+
+# Category	Object
+* Account/Trades	account
+* Market Data	market
+* User Data	userData
+* Portfolio Margin	portfolioMargin
+
+# Market Endpoint: Exchange Information"
+* https://github.com/binance/binance-futures-connector-* * * # java#:~:text=Run%20mvn%20install,Endpoint%3A%20Exchange%20Information
+
+# Market Endpoint: Exchange Information
+
+// UM-Futures
+UMFuturesClientImpl client = new UMFuturesClientImpl();
+String result = client.market().exchangeInfo();
+
+// CM-Futures
+CMFuturesClientImpl client = new CMFuturesClientImpl();
+String result = client.market().exchangeInfo();
+
+# Trade Endpoint: Testing a new order
+
+LinkedHashMap<String,Object> parameters = new LinkedHashMap<String,Object>();
+
+UMFuturesClientImpl client = new UMFuturesClientImpl(PrivateConfig.API_KEY, PrivateConfig.SECRET_KEY);
+
+parameters.put("symbol","BTCUSDT");
+parameters.put("side", "SELL");
+parameters.put("type", "LIMIT");
+parameters.put("timeInForce", "GTC");
+parameters.put("quantity", 0.01);
+parameters.put("price", 9500);
+
+String result = client.trade().testNewOrder(parameters);
+
+# Testnet
+/fapi/* and /dapi/* endpoints can be tested in Futures Testnet. You can use it by changing the base URL:
+
+# LinkedHashMap<String,Object> parameters = new LinkedHashMap<>();
+
+UMFuturesClientImpl client = new UMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY);
+String result = client.market().time();
+
+# Base URL
+It's recommended to pass in the baseUrl parameter. If not provided, the default baseUrl for USD-M Futures is https://fapi.binance.com
+If not provided, the default baseUrl for COIN-M Futures is https://dapi.binance.com
+
+# Optional parameters
+All parameters are read from a LinkedHashMap<String,Object> object where String is the name of the parameter and Object is the value of the parameter. The parameters should follow their exact naming as in the API documentation.
+
+LinkedHashMap<String,Object> parameters = new LinkedHashMap<String,Object>();
+
+• parameters.put("symbol","BTCUSDT");
+• parameters.put("side", "SELL");
+• parameters.put("type", "LIMIT");
+• parameters.put("timeInForce", "GTC");
+• parameters.put("quantity", 0.01);
+• parameters.put("price", 9500);
+
+# 
+Navigation Menu
+binance
+/
+# binance-futures-connector-java
+
+Code
+Issues
+14
+Pull requests
+3
+Actions
+Projects
+Security
+Insights
+We are having a problem billing your account. Please update your payment method or call your payment provider for details on why the transaction failed.
+You can contact support with any questions.
+Owner avatar
+binance-futures-connector-java
+Public
+binance/binance-futures-connector-java
+Folders and files
+Name		
+Latest commit
+aisling-2
+aisling-2
+v3.0.4
+1018ec8
+ · 
+7 ay önce
+History
+.github/workflows
+v3.0.4 (#25)
+7 ay önce
+src
+v3.0.4
+7 ay önce
+CHANGELOG.md
+v3.0.4 (#25)
+7 ay önce
+LICENSE.md
+first commit
+2 yıl önce
+README.md
+Release 3.0.0
+geçen yıl
+pom.xml
+v3.0.4
+7 ay önce
+Repository files navigation
+README
+MIT license
+Binance Futures Public API connector Java
+License: MIT Code Style
+
+# This is a lightweight library that works as a connector to the Binance Futures API
+
+Supported APIs:
+/fapi/*
+/dapi/*
+/futures/*
+USD-M Futures Websocket Market Stream
+COIN-M Futures Websocket Market Stream
+USD-M Futures User Data Stream
+COIN-M Futures User Data Stream
+Test cases and examples
+Installation
+# Replace LATEST_VERSION with the latest version number and paste the snippet below in pom.xml
+
+<dependency>
+    <groupId>io.github.binance</groupId>
+    <artifactId>binance-futures-connector-java</artifactId>
+    <version>LATEST_VERSION</version>
+</dependency>
+# Run mvn install where pom.xml is located to install the dependency.
+
+Run Example
+# The examples are located under src/test/java/examples. Before running the examples, set up your API_KEY and SECRET_KEY in PrivateConfig.java. This configuration file is only used for examples, you should reconfigure the API_KEY and SECRET_KEY when using the library.
+
+# RESTful APIs
+The endpoints are categorized according to the following API documentations:
+
+# Binance USDⓈ-M Futures
+# Binance COIN-M Futures
+# Each object corresponds to its category which will be used to call its respective endpoints.
+
+Category	Object
+Account/Trades	account
+Market Data	market
+User Data	userData
+Portfolio Margin	portfolioMargin
+
+# Market Endpoint: Exchange Information
+[aktif-portfoy-29-07.pdf](https://github.com/user-attachments/files/16567823/aktif-portfoy-29-07.pdf)
+[bitcoin.pdf](https://github.com/user-attachments/files/16567822/bitcoin.pdf)
+![polygon-pos-chain-daily](https://github.com/user-attachments/assets/7f6500d6-b964-4d3d-a3f9-233b829d3166)
+
+
+// UM-Futures
+UMFuturesClientImpl client = new UMFuturesClientImpl();
+String result = client.market().exchangeInfo();
+
+// CM-Futures
+CMFuturesClientImpl client = new CMFuturesClientImpl();
+String result = client.market().exchangeInfo();
+Trade Endpoint: Testing a new order
+LinkedHashMap<String,Object> parameters = new LinkedHashMap<String,Object>();
+
+UMFuturesClientImpl client = new UMFuturesClientImpl(PrivateConfig.API_KEY, PrivateConfig.SECRET_KEY);
+
+parameters.put("symbol","BTCUSDT");
+parameters.put("side", "SELL");
+parameters.put("type", "LIMIT");
+parameters.put("timeInForce", "GTC");
+parameters.put("quantity", 0.01);
+parameters.put("price", 9500);
+
+# String result = client.trade().testNewOrder(parameters);
+Testnet
+/fapi/* and /dapi/* endpoints can be tested in Futures Testnet. You can use it by changing the base URL:
+
+LinkedHashMap<String,Object> parameters = new LinkedHashMap<>();
+
+UMFuturesClientImpl client = new UMFuturesClientImpl(PrivateConfig.TESTNET_API_KEY, PrivateConfig.TESTNET_SECRET_KEY);
+String result = client.market().time();
+# Base URL
+It's recommended to pass in the baseUrl parameter. If not provided, the default baseUrl for USD-M Futures is https://fapi.binance.com
+If not provided, the default baseUrl for COIN-M Futures is https://dapi.binance.com
+
+# Optional parameters
+All parameters are read from a LinkedHashMap<String,Object> object where String is the name of the parameter and Object is the value of the parameter. The parameters should follow their exact naming as in the API documentation.
+
+LinkedHashMap<String,Object> parameters = new LinkedHashMap<String,Object>();
+
+parameters.put("symbol","BTCUSDT");
+parameters.put("side", "SELL");
+parameters.put("type", "LIMIT");
+parameters.put("timeInForce", "GTC");
+parameters.put("quantity", 0.01);
+parameters.put("price", 9500);
+Response MetaData
+# The Binance API server provides weight usages in the headers of each response. This value can be return by calling setShowLimitUsage and setting it to true.
+
+UMFuturesClientImpl client = new UMFuturesClientImpl();
+client.setShowLimitUsage(true);
+String result = client.market().time();
+logger.info(result);
+output:
+
+INFO: {"data":"{"serverTime":1633434339494}","x-mbx-used-weight":"1","x-mbx-used-weight-1m":"1"}
+Proxy
+HTTP Proxy is supported.
+
+# To set it up, call setProxy() with ProxyAuth and before submitting requests to binance:
+
+CMFuturesClientImpl client = new CMFuturesClientImpl();
+Proxy proxyConn = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 8080));
+ProxyAuth proxy = new ProxyAuth(proxyConn, null);
+
+client.setProxy(proxy);
+logger.info(client.market().time());
+For authenticated Proxy, define ProxyAuth with Authenticator from okhttp3:
+
+CMFuturesClientImpl client = new CMFuturesClientImpl();
+Proxy proxyConn = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 8080));
+    Authenticator auth = new Authenticator() {
+    public Request authenticate(Route route, Response response) throws IOException {
+        if (response.request().header("Proxy-Authorization") != null) {
+            return null; // Give up, we've already failed to authenticate.
+          }
+      
+        String credential = Credentials.basic("username", "password");
+        return response.request().newBuilder().header("Proxy-Authorization", credential).build();
+        
+    }
+};
+ProxyAuth proxy = new ProxyAuth(proxyConn, auth);
+
+client.setProxy(proxy);
+logger.info(client.market().time());
+To undo Proxy, use unsetProxy() before submitting requests to binance:
+
+client.unsetProxy();
+logger.info(client.market().time());
+Complete examples are available to the following folders:
+
+test/java/examples/cm_futures/proxy
+test/java/examples/um_futures/proxy
+Logging
+ch.qos.logback is used for logging in this connector. The configuration xml file can be found under src/main/resources.
+
+Error
+There are 3 types of error which may be thrown by this library.
+
+# BinanceConnectorException
+This is thrown when there is a validation error for parameters.For instance, mandatory parameter not sent. This error will be thrown before the request is sent to the server.
+BinanceClientException
+# This is thrown when server returns 4XX, it's an issue from client side.
+The error consists of these 3 objects which will help in debugging the error:
+httpStatusCode - HTTP status code
+errorCode - API Server's error code, e.g. -1102
+errMsg - API Server's error message, e.g. Unknown order sent.
+# BinanceServerException
+This is thrown when server returns 5XX, it's an issue from server side.
+try {
+      String result = client.trade().newOrder(parameters);
+      logger.info(result);
+    } catch (BinanceConnectorException e) {
+      logger.error("fullErrMessage: {}", e.getMessage(), e);
+    } catch (BinanceClientException e) {
+      logger.error("fullErrMessage: {} \nerrMessage: {} \nerrCode: {} \nHTTPStatusCode: {}",
+      e.getMessage(), e.getErrMsg(), e.getErrorCode(), e.getHttpStatusCode(), e);
+    }
+# Websocket
+UMWebsocketClientImpl client = new UMWebsocketClientImpl(); // defaults to production websocket URL unless stated
+int streamID1 = client.aggTradeStream("btcusdt",((event) -> {
+    System.out.println(event);
+}));
+
+//Combining Streams
+ArrayList<String> streams = new ArrayList<>();
+streams.add("btcusdt@trade");
+streams.add("bnbusdt@trade");
+
+int streamID2 = client.combineStreams(streams, ((event) -> {
+    System.out.println(event);
+}));
+
+//Listening to User Data Stream
+int streamID3 = client.listenUserStream(listenKey, ((event) -> {
+  System.out.println(event);
+}));
+
+//Closing a single stream
+client.closeConnection(streamID1); //closes aggTradeStream-btcusdt
+
+//Closing all streams
+client.closeAllConnections();
+More websocket examples are available in the test/examples folder
+
+# Test
+mvn clean test
+
+# Contributing
+Contributions are welcome.
+If you've found a bug within this project, please open an issue to discuss what you would like to change.
+If it's an issue with the API, please open a topic at Binance Developer Community
+[aktif-portfoy-29-07.pdf](https://github.com/user-attachments/files/16567823/aktif-portfoy-29-07.pdf)
+[bitcoin.pdf](https://github.com/user-attachments/files/16567822/bitcoin.pdf)
+![polygon-pos-chain-daily](https://github.com/user-attachments/assets/7f6500d6-b964-4d3d-a3f9-233b829d3166)
